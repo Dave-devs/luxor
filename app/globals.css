@@ -3,19 +3,41 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
+  --background: #edf2f4;
   --foreground: #171717;
 }
 
-@media (prefers-color-scheme: dark) {
+/* Ensures light mode as the preferred color mode */
+@media (prefers-color-scheme: light) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #edf2f4;
+    /* Force light mode */
+    --foreground: #171717;
+    /* Force light mode */
   }
+}
+
+@layer utilities {
+  .search-bar {
+    @apply uppercase bg-white text-3xl;
+  }
+  
 }
 
 body {
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+  @apply overflow-x-hidden;
+}
+
+/* Hides all scrollbars */
+::-webkit-scrollbar {
+  display: none;
+  /* Completely hides the scrollbar */
+}
+
+body {
+  scrollbar-width: none;
+  /* For Firefox */
 }
